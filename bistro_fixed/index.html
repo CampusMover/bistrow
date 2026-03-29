@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEAUTY BISTRO | Luxury Natural Haircare &amp; Braiding in Accra</title>
+  <meta name="description" content="Luxury natural hair care and braiding in the heart of Accra. Experience the art of healthy hair styling at Beauty Bistro.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <img class="logo" src="image/logo.png" alt="Beauty Bistro"
+           onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block'">
+      <a href="#home" class="logo-text" id="logo-text" style="display:none;">BEAUTY <span>BISTRO</span></a>
+
+      <div class="nav-links" role="list">
+        <a href="#home" role="listitem">Home</a>
+        <a href="#about" role="listitem">About</a>
+        <a href="#services" role="listitem">Services</a>
+        <a href="#gallery" role="listitem">Gallery</a>
+        <a href="#contact" role="listitem">Contact</a>
+        <button class="btn-book" onclick="openBookingModal()" aria-label="Book an appointment">Book Now</button>
+        <!-- Login icon (shown when logged out) -->
+        <button id="nav-login-btn" class="nav-icon-btn" onclick="openLoginModal()" aria-label="Login to account">
+          <i class="far fa-user" aria-hidden="true"></i>
+        </button>
+        <!-- Logout button (shown when logged in) -->
+        <button id="nav-logout-btn" class="nav-logout-btn" onclick="logout()" style="display:none;" aria-label="Logout">
+          <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
+        </button>
+      </div>
+
+      <button class="mobile-menu-btn" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="#home"     onclick="closeMobileNav()">Home</a>
+    <a href="#about"    onclick="closeMobileNav()">About</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#gallery"  onclick="closeMobileNav()">Gallery</a>
+    <a href="#contact"  onclick="closeMobileNav()">Contact</a>
+    <a href="#" id="mobile-account-link" onclick="closeMobileNav(); openLoginModal()">
+      <i class="far fa-user" aria-hidden="true"></i> My Account
+    </a>
+    <button class="btn-book" onclick="closeMobileNav(); openBookingModal()">Book Appointment</button>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home" aria-label="Welcome to Beauty Bistro">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text animate-on-scroll">
+          <h1>Luxury Natural Haircare &amp; Braiding in Accra</h1>
+          <p>Experience expert natural hair styling, protective braids, and healthy hair treatments at BEAUTY BISTRO.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="openBookingModal()">Book Appointment</button>
+            <a href="#services" class="btn btn-secondary">View Services</a>
+          </div>
+        </div>
+        <div class="hero-image animate-on-scroll">
+          <img src="image/ca46e3c83f98c062ddea7bf9be02b870.jpg"
+               alt="A client with a beautiful natural protective hairstyle" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED HAIRSTYLES ===================== -->
+  <section class="featured-section" id="featured" aria-label="Featured hairstyles">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Featured Hairstyles</h2>
+        <p>Our most requested styles, crafted with expertise and care</p>
+      </div>
+      <div class="featured-grid">
+        <article class="featured-card animate-on-scroll">
+          <img src="image/5b790f0755e9710db2a7caa2fd7dcf08.jpg" alt="Classic Box Braids" loading="lazy">
+          <div class="card-content">
+            <h3>Classic Box Braids</h3>
+            <p>Timeless protective style that lasts for weeks</p>
+            <button class="btn-book" onclick="openBookingModal('Classic Box Braids')">Book Now</button>
+          </div>
+        </article>
+        <article class="featured-card animate-on-scroll">
+          <img src="image/b23aaf970fac10c80b16275a037c1ad6.jpg" alt="Twist Out style" loading="lazy">
+          <div class="card-content">
+            <h3>Twist Out</h3>
+            <p>Perfect definition for natural curls</p>
+            <button class="btn-book" onclick="openBookingModal('Twist Out')">Book Now</button>
+          </div>
+        </article>
+        <article class="featured-card animate-on-scroll">
+          <img src="image/c22e59b66138d2b1401fe2cd1557423c.jpg" alt="Lemonade Braids" loading="lazy">
+          <div class="card-content">
+            <h3>Lemonade Braids</h3>
+            <p>Trendy side-swept braids for any occasion</p>
+            <button class="btn-book" onclick="openBookingModal('Lemonade Braids')">Book Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials" aria-label="Client testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Client Love</h2>
+        <p>What our clients say about their experience</p>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card animate-on-scroll">
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+          <p>Best salon in Accra! My hair has never been healthier. The stylists really understand natural hair.</p>
+          <cite class="client-name">— Abena Mensah</cite>
+        </blockquote>
+        <blockquote class="testimonial-card animate-on-scroll">
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+          <p>The braiding service is exceptional. Professional, clean, and my braids lasted over 6 weeks!</p>
+          <cite class="client-name">— Naa Ayeley</cite>
+        </blockquote>
+        <blockquote class="testimonial-card animate-on-scroll">
+          <i class="fas fa-quote-left" aria-hidden="true"></i>
+          <p>Love the luxurious atmosphere and attention to detail. My go-to salon for protective styles.</p>
+          <cite class="client-name">— Esi Mawusi</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section class="why-choose" aria-label="Why choose Beauty Bistro">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Why Choose BEAUTY BISTRO</h2>
+        <p>Experience the difference of professional natural hair care</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item animate-on-scroll">
+          <i class="fas fa-leaf" aria-hidden="true"></i>
+          <h3>Healthy Hair Focus</h3>
+          <p>All styles prioritize the health and integrity of your natural hair</p>
+        </div>
+        <div class="feature-item animate-on-scroll">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <h3>Expert Stylists</h3>
+          <p>Professionally trained in natural hair techniques and braiding</p>
+        </div>
+        <div class="feature-item animate-on-scroll">
+          <i class="fas fa-spa" aria-hidden="true"></i>
+          <h3>Luxury Experience</h3>
+          <p>Relax in our premium salon environment</p>
+        </div>
+        <div class="feature-item animate-on-scroll">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          <h3>Long-Lasting Styles</h3>
+          <p>Quality work that keeps your style beautiful for weeks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery-section" id="gallery" aria-label="Hair gallery">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Hair Transformation Gallery</h2>
+        <p>Browse our latest styles and transformations</p>
+      </div>
+      <div class="gallery-filters" role="group" aria-label="Gallery filter buttons">
+        <button class="filter-btn active" data-filter="all"          onclick="filterGallery('all')"             aria-pressed="true">All</button>
+        <button class="filter-btn"        data-filter="natural"      onclick="filterGallery('natural')"         aria-pressed="false">Natural Styles</button>
+        <button class="filter-btn"        data-filter="protective"   onclick="filterGallery('protective')"      aria-pressed="false">Protective Styles</button>
+        <button class="filter-btn"        data-filter="transformations" onclick="filterGallery('transformations')" aria-pressed="false">Transformations</button>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item animate-on-scroll" data-category="natural">
+          <img src="image/690c68928d8f439386a8a476abf49fef.jpg" alt="Natural curls hairstyle" loading="lazy">
+          <div class="gallery-overlay"><h4>Natural Curls</h4></div>
+        </div>
+        <div class="gallery-item animate-on-scroll" data-category="protective">
+          <img src="image/edd7c005a5157474899a07cc67deaae0.jpg" alt="Box Braids protective style" loading="lazy">
+          <div class="gallery-overlay"><h4>Box Braids</h4></div>
+        </div>
+        <div class="gallery-item animate-on-scroll" data-category="transformations">
+          <img src="image/7ef37141f8c475de327bd530c84f2d49.jpg" alt="Big chop hair transformation" loading="lazy">
+          <div class="gallery-overlay"><h4>Big Chop Transformation</h4></div>
+        </div>
+        <div class="gallery-item animate-on-scroll" data-category="protective">
+          <img src="image/3127b9b41d5e1a8f9954cb399737f2fa.jpg" alt="Fulani Braids" loading="lazy">
+          <div class="gallery-overlay"><h4>Fulani Braids</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK BOOKING ===================== -->
+  <section class="quick-booking" aria-label="Quick booking form">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 style="color:var(--white);">Quick Booking</h2>
+        <p>Book your appointment in seconds</p>
+      </div>
+      <div class="booking-form animate-on-scroll">
+        <div class="form-group">
+          <label for="quick-service">Service</label>
+          <select id="quick-service">
+            <option value="">Select Service</option>
+            <option value="Box Braids">Box Braids</option>
+            <option value="Twist Out">Twist Out</option>
+            <option value="Bantu Knots">Bantu Knots</option>
+            <option value="Perm Rod Sets">Perm Rod Sets</option>
+            <option value="Curlformer Sets">Curlformer Sets</option>
+            <option value="Mini Twists">Mini Twists</option>
+            <option value="Straw Set">Straw Set</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quick-date">Date</label>
+          <input type="date" id="quick-date">
+        </div>
+        <div class="form-group">
+          <label for="quick-time">Time</label>
+          <select id="quick-time">
+            <option value="">Select Time</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quick-name">Your Name</label>
+          <input type="text" id="quick-name" placeholder="Full name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="quick-phone">Phone Number</label>
+          <input type="tel" id="quick-phone" placeholder="e.g. 020 320 0800" autocomplete="tel">
+        </div>
+        <button id="quick-book-btn" class="btn btn-primary" style="width:100%;margin-top:8px;" onclick="quickBook()">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="why-choose" id="about" aria-label="About Beauty Bistro">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>About BEAUTY BISTRO</h2>
+      </div>
+      <div style="max-width:800px;margin:0 auto;text-align:center;" class="animate-on-scroll">
+        <p style="font-size:1.1rem;line-height:1.9;color:var(--brown);">
+          BEAUTY BISTRO is a professional natural hair salon located in Accra, dedicated to providing
+          high-quality braiding, protective styling, and healthy haircare services. Our goal is to help
+          clients maintain strong, beautiful natural hair while enjoying a relaxing and luxurious salon experience.
+        </p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+            <h4>Est. 2020</h4>
+          </div>
+          <div class="about-stat">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <h4>1,000+ Happy Clients</h4>
+          </div>
+          <div class="about-stat">
+            <i class="fas fa-award" aria-hidden="true"></i>
+            <h4>Certified Stylists</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="services-page" id="services" aria-label="Our services">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Our Premium Services</h2>
+        <p>Expert natural hair styling and protective styles</p>
+      </div>
+      <div class="services-grid">
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/39f4559f0e74b02d340c31b1363c0ae7.jpg" alt="Natural Hair Styling" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Natural Hair Styling</h3>
+            <p class="service-desc">Professional styling for your natural hair, including wash, deep condition, and style.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 2–3 hours</span>
+            <div class="service-price">From ₵250</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Natural Hair Styling')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/65ff9d44aae0d4be8084d9a931a91059.jpg" alt="Twist Braid Out" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Twist / Braid Outs</h3>
+            <p class="service-desc">Beautifully defined twist out or braid out for maximum curl definition.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 2–3 hours</span>
+            <div class="service-price">From ₵200</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Twist / Braid Outs')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/1df9cd03b1fac66c848b4d3705b56bff.jpg" alt="Bantu Knots" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Bantu Knots</h3>
+            <p class="service-desc">Traditional Bantu knots that give beautiful curl patterns when taken down.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 2 hours</span>
+            <div class="service-price">From ₵180</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Bantu Knots')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/ca46e3c83f98c062ddea7bf9be02b870.jpg" alt="Perm Rod Sets" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Perm Rod Sets</h3>
+            <p class="service-desc">Classic perm rod set for bouncy, defined curls that last.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 3 hours</span>
+            <div class="service-price">From ₵220</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Perm Rod Sets')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/05685313713dfe468290d610aec15284.jpg" alt="Curlformer Sets" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Curlformer Sets</h3>
+            <p class="service-desc">Heatless curl setting for beautiful, long-lasting curls.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 2.5 hours</span>
+            <div class="service-price">From ₵200</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Curlformer Sets')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/259772ee71a46921a32e27c00c7c35c3.jpg" alt="Mini Twists" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Mini Twists</h3>
+            <p class="service-desc">Small, lightweight twists perfect for low-maintenance styling.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 4–5 hours</span>
+            <div class="service-price">From ₵350</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Mini Twists')">Book Now</button>
+          </div>
+        </article>
+
+        <article class="service-card animate-on-scroll">
+          <div class="service-image">
+            <img src="image/ae2cb5d0e65ffafd68d3a7e0348b4905.jpg" alt="Straw Set" loading="lazy">
+          </div>
+          <div class="service-details">
+            <h3>Straw Set</h3>
+            <p class="service-desc">Vintage-inspired straw set for tight, springy curls.</p>
+            <span class="service-time"><i class="far fa-clock" aria-hidden="true"></i> 3 hours</span>
+            <div class="service-price">From ₵200</div>
+            <button class="btn btn-primary" onclick="openBookingModal('Straw Set')">Book Now</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact-page" id="contact" aria-label="Contact us">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Contact Us</h2>
+        <p>Visit us in Accra or book your appointment online</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info animate-on-scroll">
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <div class="info-content"><h4>Location</h4><p>Accra, Ghana</p></div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <div class="info-content"><h4>Phone</h4><p><a href="tel:+233203200800" style="color:inherit;">020 320 0800</a></p></div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <div class="info-content"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection#7811161e17381a1d190d0c011a110b0c0a171f10561b1715" style="color:inherit;"><span class="__cf_email__" data-cfemail="b6dfd8d0d9f6d4d3d7c3c2cfd4dfc5c2c4d9d1de98d5d9db">[email&#160;protected]</span></a></p></div>
+          </div>
+          <div class="info-item">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <div class="info-content">
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/233203200800" target="_blank" rel="noopener noreferrer" style="color:inherit;">Chat with us</a></p>
+            </div>
+          </div>
+          <h3 style="margin:28px 0 16px;color:var(--dark-brown);">Opening Hours</h3>
+          <div class="hours-grid">
+            <div class="hours-item"><span>Sunday</span><span>2:00 PM – 7:00 PM</span></div>
+            <div class="hours-item"><span>Monday – Saturday</span><span>8:00 AM – 8:00 PM</span></div>
+          </div>
+        </div>
+        <div class="map-container animate-on-scroll">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.403452783554!2d-0.201726!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMTMuMyJOIDDCsDEyJzA2LjIiVw!5e0!3m2!1sen!2sgh!4v1620000000000!5m2!1sen!2sgh"
+            title="Beauty Bistro location on Google Maps" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOCIAL FEED ===================== -->
+  <section class="social-feed" aria-label="Social media feed">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Follow Us @beautybistrogh</h2>
+        <p>Stay connected for the latest styles and promotions</p>
+      </div>
+      <div class="social-icons" role="list">
+        <a href="https://www.tiktok.com/@beauty.bistrogh" target="_blank" rel="noopener noreferrer" class="social-icon" role="listitem" aria-label="TikTok">
+          <i class="fab fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/beautybistrogh" target="_blank" rel="noopener noreferrer" class="social-icon" role="listitem" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1CLkaWbfqf/" target="_blank" rel="noopener noreferrer" class="social-icon" role="listitem" aria-label="Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/233203200800" target="_blank" rel="noopener noreferrer" class="social-icon" role="listitem" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="instagram-feed">
+        <div class="insta-post animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1583000509877-f3aad4b8e9d0?auto=format&fit=crop&w=600&q=80" alt="Instagram style post 1" loading="lazy">
+          <div class="insta-overlay"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+        </div>
+        <div class="insta-post animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1605497184803-7f4e22d44f5a?auto=format&fit=crop&w=600&q=80" alt="Instagram style post 2" loading="lazy">
+          <div class="insta-overlay"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+        </div>
+        <div class="insta-post animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1532009877283-334bf5808ed3?auto=format&fit=crop&w=600&q=80" alt="Instagram style post 3" loading="lazy">
+          <div class="insta-overlay"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+        </div>
+        <div class="insta-post animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Instagram style post 4" loading="lazy">
+          <div class="insta-overlay"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CUSTOMER DASHBOARD (hidden until login) ===================== -->
+  <section class="account-dashboard" id="account-dashboard" style="display:none;" aria-label="Customer dashboard">
+    <div class="container">
+      <div class="account-header">
+        <h2 id="dashboard-greeting">Welcome back! 👋</h2>
+        <p>Manage your appointments and preferences</p>
+      </div>
+      <div class="account-tabs" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true">Upcoming Appointments</button>
+        <button class="tab-btn" role="tab" aria-selected="false">Booking History</button>
+      </div>
+      <!-- Real appointments injected here by main.js -->
+      <div class="appointments-list" id="my-appointments-list">
+        <p style="text-align:center;color:var(--brown);padding:30px;">Loading your appointments…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ADMIN DASHBOARD (hidden until admin login) ===================== -->
+  <section class="admin-dashboard" id="admin-dashboard" style="display:none;" aria-label="Admin dashboard">
+    <div class="container">
+      <div class="section-header">
+        <h2>Owner Dashboard</h2>
+        <p>Manage your salon business</p>
+      </div>
+
+      <!-- Live stats — populated by main.js -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <i class="fas fa-calendar-check" aria-hidden="true"></i>
+          <div class="number" id="admin-stat-bookings">—</div>
+          <div class="label">Today's Bookings</div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-users" aria-hidden="true"></i>
+          <div class="number" id="admin-stat-customers">—</div>
+          <div class="label">Total Customers</div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          <div class="number" id="admin-stat-total">—</div>
+          <div class="label">Total Bookings</div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-percent" aria-hidden="true"></i>
+          <div class="number" id="admin-stat-occupancy">—</div>
+          <div class="label">Occupancy Rate</div>
+        </div>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="admin-filter-bar">
+        <div class="admin-filter-buttons">
+          <button class="admin-filter-btn active" data-status="all"       onclick="adminFilterBookings('all')">All</button>
+          <button class="admin-filter-btn"         data-status="pending"   onclick="adminFilterBookings('pending')">Pending</button>
+          <button class="admin-filter-btn"         data-status="confirmed" onclick="adminFilterBookings('confirmed')">Confirmed</button>
+          <button class="admin-filter-btn"         data-status="completed" onclick="adminFilterBookings('completed')">Completed</button>
+          <button class="admin-filter-btn"         data-status="cancelled" onclick="adminFilterBookings('cancelled')">Cancelled</button>
+        </div>
+        <div class="admin-search-wrap">
+          <input type="text" id="admin-search" placeholder="Search client name, phone, email…"
+                 oninput="adminFilterBookings(document.querySelector('.admin-filter-btn.active')?.dataset.status || 'all')">
+        </div>
+      </div>
+
+      <div class="admin-layout">
+        <nav class="admin-sidebar" aria-label="Admin sidebar">
+          <ul class="admin-menu">
+            <li><a href="#" class="active"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Appointments</a></li>
+            <li><a href="#services"><i class="fas fa-cut" aria-hidden="true"></i> Services</a></li>
+            <li><a href="#" onclick="loadAdminNewsletter()"><i class="fas fa-envelope" aria-hidden="true"></i> Newsletter</a></li>
+            <li><a href="#"><i class="fas fa-chart-line" aria-hidden="true"></i> Reports</a></li>
+          </ul>
+        </nav>
+
+        <!-- Live bookings injected by main.js -->
+        <div class="appointments-list" id="admin-bookings-list">
+          <p style="text-align:center;color:var(--brown);padding:30px;">Loading bookings…</p>
+        </div>
+      </div>
+
+      <!-- Newsletter subscriber list (hidden panel) -->
+      <div id="newsletter-panel" style="display:none;margin-top:30px;">
+        <div class="appointments-list">
+          <h3>Newsletter Subscribers</h3>
+          <div id="newsletter-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>BEAUTY BISTRO</h3>
+          <p>Luxury natural hair care and braiding in the heart of Accra. Experience the art of healthy hair styling.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+233203200800">020 320 0800</a></li>
+            <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@beautybistrogh.com">info@beautybistrogh.com</a></li>
+            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Accra, Ghana</li>
+            <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/233203200800" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p style="margin-bottom:14px;">Subscribe for updates and special offers</p>
+          <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" placeholder="Your Email" required autocomplete="email">
+            <button class="btn btn-primary" type="submit" style="width:100%;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 BEAUTY BISTRO. All rights reserved. Designed with ❤️ in Accra, Ghana.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BOOKING MODAL ===================== -->
+  <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeBookingModal()" aria-label="Close booking modal">&times;</button>
+      <h2 id="bookingModalTitle">Book Your Appointment</h2>
+
+      <div class="booking-steps-indicator" aria-hidden="true">
+        <span class="step-label active" id="sl1">1. Service</span>
+        <span class="step-label" id="sl2">2. Date &amp; Time</span>
+        <span class="step-label" id="sl3">3. Details</span>
+      </div>
+
+      <!-- Step 1 -->
+      <div id="step1">
+        <div class="form-group">
+          <label for="modal-service">Select a Service</label>
+          <select id="modal-service" aria-required="true">
+            <option value="">Choose service…</option>
+            <option value="Natural Hair Styling">Natural Hair Styling</option>
+            <option value="Twist / Braid Outs">Twist / Braid Outs</option>
+            <option value="Bantu Knots">Bantu Knots</option>
+            <option value="Perm Rod Sets">Perm Rod Sets</option>
+            <option value="Curlformer Sets">Curlformer Sets</option>
+            <option value="Mini Twists">Mini Twists</option>
+            <option value="Straw Set">Straw Set</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" style="width:100%;" onclick="nextStep(2)">Continue →</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step2" style="display:none;">
+        <div class="form-group">
+          <label for="modal-date">Preferred Date</label>
+          <input type="date" id="modal-date" aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="modal-time">Preferred Time</label>
+          <select id="modal-time" aria-required="true">
+            <option value="">Select time…</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+          </select>
+        </div>
+        <div class="step-row">
+          <button class="btn btn-secondary" onclick="prevStep(1)">← Back</button>
+          <button class="btn btn-primary"   onclick="nextStep(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step3" style="display:none;">
+        <div class="form-group">
+          <label for="modal-name">Full Name</label>
+          <input type="text" id="modal-name" placeholder="Your full name" autocomplete="name" aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="modal-email">Email Address</label>
+          <input type="email" id="modal-email" placeholder="you@email.com" autocomplete="email">
+          <small style="color:var(--brown);font-size:0.8rem;">For your confirmation email (optional)</small>
+        </div>
+        <div class="form-group">
+          <label for="modal-phone">Phone Number</label>
+          <input type="tel" id="modal-phone" placeholder="020 320 0800" autocomplete="tel" aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="modal-notes">Additional Notes (optional)</label>
+          <textarea id="modal-notes" placeholder="Any special requests…" rows="3"></textarea>
+        </div>
+        <div class="step-row">
+          <button class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn btn-primary"   id="confirm-btn" onclick="confirmBooking()">Confirm Booking</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Confirmation -->
+      <div id="step4" style="display:none;text-align:center;padding:20px 0;">
+        <i class="fas fa-check-circle" style="font-size:4rem;color:var(--gold);margin-bottom:20px;" aria-hidden="true"></i>
+        <h3 style="margin-bottom:12px;color:var(--dark-brown);">Booking Confirmed!</h3>
+        <p style="margin-bottom:24px;color:var(--brown);">We've received your booking and will be in touch shortly. A confirmation has been sent if you provided your email.</p>
+        <button class="btn btn-primary" onclick="closeBookingModal()" style="margin-bottom:10px;">Done</button>
+        <!-- WhatsApp button injected here by JS after booking -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== LOGIN / REGISTER MODAL ===================== -->
+  <div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeLoginModal()" aria-label="Close login modal">&times;</button>
+
+      <!-- Login Tab -->
+      <div id="login-tab">
+        <h2 id="loginModalTitle" style="margin-bottom:28px;text-align:center;">Welcome Back</h2>
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Your password" autocomplete="current-password">
+        </div>
+        <button class="btn btn-primary" id="login-btn" style="width:100%;margin-bottom:16px;" onclick="login()">Login</button>
+        <p style="text-align:center;color:var(--brown);font-size:0.9rem;">
+          Don't have an account?
+          <a href="#" style="color:var(--gold);font-weight:600;" onclick="showRegister()">Register</a>
+        </p>
+      </div>
+
+      <!-- Register Tab (hidden by default) -->
+      <div id="register-tab" style="display:none;">
+        <h2 style="margin-bottom:28px;text-align:center;">Create Account</h2>
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" placeholder="At least 6 characters">
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Confirm Password</label>
+          <input type="password" id="reg-confirm" placeholder="Repeat password">
+        </div>
+        <button class="btn btn-primary" id="register-btn" style="width:100%;margin-bottom:16px;" onclick="register()">
+          Create Account
+        </button>
+        <p style="text-align:center;color:var(--brown);font-size:0.9rem;">
+          Already have an account?
+          <a href="#" style="color:var(--gold);font-weight:600;" onclick="showLoginTab()">Login</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="main.js" defer></script>
+</body>
+</html>
